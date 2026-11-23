@@ -1,0 +1,56 @@
+#include <iostream>
+#include <string>
+using namespace std;
+class book
+{
+private:
+    string booktitle;
+    string author;
+    int numberofcopies;
+
+public:
+    book(string b, string a, int n)
+    {
+        booktitle = b;
+        author = a;
+        numberofcopies = n;
+    }
+    void inputdetails()
+    {
+        cout <<"Enter booktitle: \n";
+        getline(cin,booktitle);
+        cout <<"Enter author: \n";
+        getline(cin,author);
+    }
+    void borrowbook()
+    {
+        int booksborrowed;
+        cout << "Enter number of books borrowed: ";
+        cin >>booksborrowed;
+        
+        if (booksborrowed <= numberofcopies && booksborrowed > 0)
+        {
+            numberofcopies -= booksborrowed;
+            cout << "Remaining books: " << numberofcopies << endl;
+        }
+        else
+        {
+            cout << "INVALID BOOKS" << endl;
+        }
+    }
+    void displaydetails()
+    {
+        cout << "\n=====BOOK DETAILS=====\n";
+        cout << "\nBOOK TITLE:"<<booktitle;
+        cout << "\nAUTHOR:"<<author;
+        cout <<"\nNUMBER OF COPIES:"<< numberofcopies;
+    }
+};
+int main()
+{
+    book b("CHOZI LA HERI", "BI MSAFARI", 22);
+    b.inputdetails();
+    b.borrowbook();
+    b.displaydetails();
+    return 0;
+}
